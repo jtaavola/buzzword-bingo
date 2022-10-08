@@ -1,60 +1,48 @@
-import logo from './logo.svg';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import { Board } from './components/Board';
 
-const AppContainer = styled.div`
-  text-align: center;
-`;
+const sampleBuzzwords = [
+  'Can you see my screen?',
+  "You're on mute",
+  "Let's take this offline",
+  "I'm having VPN issues",
+  "You're audio is cutting out",
+  'Artificial Intelligence',
+  'Small talk',
+  'Machine Learning',
+  "We're 2 minutes over",
+  'Awkward silence',
+  'The Cloud',
+  "I'll give you all 3 minutes back",
+  '', // free space
+  'Can I share my screen?',
+  'Scalable',
+  'I have to drop',
+  'brb in the chat',
+  "Let's set up a working session",
+  'Was that your cat?',
+  'It looks like everyone is here',
+  'Are you in the office?',
+  'Let me share my screen',
+  'Happy Friday!',
+  'Touch base',
+  'Coffee break',
+];
 
-const AppHeader = styled.header`
-  background-color: #282c34;
+const BuzzwordBingo = styled.div`
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #282c34;
 `;
 
-const AppLogoSpin = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
-
-const AppLogo = styled.img`
-  height: 40vmin;
-  pointer-events: none;
-  @media (prefers-reduced-motion: no-preference) {
-    animation: ${AppLogoSpin} infinite 20s linear;
-  }
-`;
-
-const AppLink = styled.a`
-  color: #61dafb;
-`;
-
-function App() {
+const App = () => {
   return (
-    <AppContainer>
-      <AppHeader>
-        <AppLogo src={logo} alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <AppLink
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </AppLink>
-      </AppHeader>
-    </AppContainer>
+    <BuzzwordBingo>
+      <Board buzzwords={sampleBuzzwords}></Board>
+    </BuzzwordBingo>
   );
-}
+};
 
 export default App;
