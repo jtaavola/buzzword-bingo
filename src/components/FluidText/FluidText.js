@@ -5,10 +5,13 @@ const FluidTextContainer = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: scroll;
+`;
+
+const FluidTextItem = styled.div`
+  margin: auto;
   font-size: ${(props) => props.fontSize}px;
+  text-align: center;
 `;
 
 const isOverflowing = (el) => {
@@ -34,13 +37,13 @@ export const FluidText = ({ maxSize, minSize, children }) => {
   }, [children, fontSize, minSize]);
 
   return (
-    <FluidTextContainer fontSize={fontSize} ref={ref}>
-      {children}
+    <FluidTextContainer ref={ref}>
+      <FluidTextItem fontSize={fontSize}>{children}</FluidTextItem>
     </FluidTextContainer>
   );
 };
 
 FluidText.defaultProps = {
-  maxSize: '32',
+  maxSize: '24',
   minSize: '12',
 };
