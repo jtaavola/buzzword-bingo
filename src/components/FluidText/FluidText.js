@@ -7,7 +7,7 @@ const FluidTextContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: scroll;
+  overflow: hidden;
   font-size: ${(props) => props.fontSize}px;
 `;
 
