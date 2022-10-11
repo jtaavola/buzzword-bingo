@@ -20,8 +20,6 @@ export const Board = ({ buzzwords }) => {
       .map(({ val }) => val)
       .slice(0, 24);
 
-    console.log({ shuffledBuzzwords });
-
     let spaces = [];
     let freeSpacePushed = false;
 
