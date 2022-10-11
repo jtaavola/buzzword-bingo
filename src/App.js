@@ -14,7 +14,6 @@ const sampleBuzzwords = [
   'Awkward silence',
   'The Cloud',
   "I'll give you all 3 minutes back",
-  '', // free space
   'Can I share my screen?',
   'Scalable',
   'I have to drop',
