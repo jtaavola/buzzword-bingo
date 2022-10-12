@@ -31,14 +31,17 @@ const sampleBuzzwords = [
 const BuzzwordBingo = styled.div`
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: white;
   background-color: #282c34;
 `;
 
 const App = () => {
   return (
     <BuzzwordBingo>
+      <h1>Buzzword Bingo</h1>
       <Board buzzwords={sampleBuzzwords}></Board>
     </BuzzwordBingo>
   );
