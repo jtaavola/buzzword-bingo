@@ -5,11 +5,11 @@ const FluidTextContainer = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
-  overflow: scroll;
 `;
 
 const FluidTextItem = styled.div`
   margin: auto;
+  overflow: hidden;
   font-size: ${(props) => props.fontSize}px;
   text-align: center;
 `;

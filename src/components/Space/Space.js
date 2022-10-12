@@ -1,9 +1,8 @@
-// import logo from './logo.svg';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FluidText } from '../FluidText';
 
-const SpaceContainer = styled.div`
+const SpaceContainer = styled.button`
   background-color: ${(props) => (props.selected ? 'lightgreen' : 'white')};
   color: black;
   border: thin solid black;
@@ -12,6 +11,7 @@ const SpaceContainer = styled.div`
     scale: 1.05;
   }
   padding: 0.5em 0.25em;
+  cursor: pointer;
 `;
 
 const FreeSpaceContainer = styled(SpaceContainer)`
@@ -23,6 +23,7 @@ const FreeSpaceContainer = styled(SpaceContainer)`
 
 export const Space = ({ id, onAction, children }) => {
   const [isSelected, setIsSelected] = useState(false);
+
   const toggleIsSelected = () => {
     setIsSelected(!isSelected);
     if (onAction) {
@@ -31,7 +32,11 @@ export const Space = ({ id, onAction, children }) => {
   };
 
   return (
-    <SpaceContainer selected={isSelected} onClick={toggleIsSelected}>
+    <SpaceContainer
+      type="button"
+      selected={isSelected}
+      onClick={toggleIsSelected}
+    >
       <FluidText>{children}</FluidText>
     </SpaceContainer>
   );
