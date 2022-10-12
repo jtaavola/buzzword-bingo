@@ -19,6 +19,7 @@ const FreeSpaceContainer = styled(SpaceContainer)`
     // override the scaling back to default for free space
     scale: 1;
   }
+  cursor: auto;
 `;
 
 export const Space = ({ id, onAction, children }) => {
