@@ -5,11 +5,11 @@ const FluidTextContainer = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
+  overflow: hidden;
 `;
 
 const FluidTextItem = styled.div`
   margin: auto;
-  overflow: hidden;
   font-size: ${(props) => props.fontSize}px;
   text-align: center;
 `;
@@ -30,6 +30,14 @@ export const FluidText = ({ maxSize, minSize, children }) => {
   // decrease font-size if overflowing until minSize font size
   useEffect(() => {
     const decrementFontSize = () => setFontSize(fontSize - 1);
+
+    console.log(
+      children,
+      ref.current.scrollHeight,
+      ref.current.clientHeight,
+      ref.current.scrollWidth,
+      ref.current.clientWidth
+    );
 
     if (fontSize > minSize && isOverflowing(ref.current)) {
       decrementFontSize();
