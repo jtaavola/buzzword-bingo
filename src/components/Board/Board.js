@@ -8,6 +8,10 @@ const BoardContainer = styled.div`
   grid-template-rows: repeat(5, minmax(0, 1fr));
   height: 80vmin;
   width: 80vmin;
+  @media (max-width: 463px) {
+    height: 95vmin;
+    width: 95vmin;
+  }
 `;
 
 export const Board = ({ buzzwords }) => {

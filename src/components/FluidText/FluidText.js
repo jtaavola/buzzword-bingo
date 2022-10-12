@@ -45,5 +45,5 @@ export const FluidText = ({ maxSize, minSize, children }) => {
 
 FluidText.defaultProps = {
   maxSize: '24',
-  minSize: '12',
+  minSize: '10',
 };
