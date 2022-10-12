@@ -31,14 +31,6 @@ export const FluidText = ({ maxSize, minSize, children }) => {
   useEffect(() => {
     const decrementFontSize = () => setFontSize(fontSize - 1);
 
-    console.log(
-      children,
-      ref.current.scrollHeight,
-      ref.current.clientHeight,
-      ref.current.scrollWidth,
-      ref.current.clientWidth
-    );
-
     if (fontSize > minSize && isOverflowing(ref.current)) {
       decrementFontSize();
     }
