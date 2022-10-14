@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/buzzword-bingo/static/js/main.36dce5ce.js",
+    "main.js": "/buzzword-bingo/static/js/main.b9b244af.js",
     "static/js/787.e708a617.chunk.js": "/buzzword-bingo/static/js/787.e708a617.chunk.js",
     "index.html": "/buzzword-bingo/index.html",
-    "main.36dce5ce.js.map": "/buzzword-bingo/static/js/main.36dce5ce.js.map",
+    "main.b9b244af.js.map": "/buzzword-bingo/static/js/main.b9b244af.js.map",
     "787.e708a617.chunk.js.map": "/buzzword-bingo/static/js/787.e708a617.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.36dce5ce.js"
+    "static/js/main.b9b244af.js"
   ]
 }
