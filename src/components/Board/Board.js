@@ -14,7 +14,7 @@ const BoardContainer = styled.div`
   }
 `;
 
-export const Board = ({ buzzwords }) => {
+export const Board = ({ buzzwords, refreshEvent }) => {
   const [bingoSpaces, setBingoSpaces] = useState([]);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export const Board = ({ buzzwords }) => {
         freeSpacePushed = true;
       } else {
         spaces.push(
-          <Space key={i} id={i}>
+          <Space key={refreshEvent + i} id={i}>
             {shuffledBuzzwords[freeSpacePushed ? i - 1 : i]}
           </Space>
         );
@@ -42,7 +42,7 @@ export const Board = ({ buzzwords }) => {
     }
 
     setBingoSpaces(spaces);
-  }, [buzzwords]);
+  }, [buzzwords, refreshEvent]);
 
   return <BoardContainer>{bingoSpaces}</BoardContainer>;
 };
