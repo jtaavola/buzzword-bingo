@@ -1,31 +1,36 @@
 import styled from 'styled-components';
 import { Board } from './components/Board';
 
-const sampleBuzzwords = [
+const buzzwords = [
   'Can you see my screen?',
-  "You're on mute",
-  "Let's take this offline",
-  "I'm having VPN issues",
-  'Your audio is cutting out',
+  "You're on mute.",
+  "Let's take this offline.",
+  "I'm having VPN issues.",
+  'Your audio is cutting out.',
   'Artificial Intelligence',
-  'Small talk',
+  '*Small talk*',
   'Machine Learning',
-  "We're two minutes over",
+  "We're two minutes over.",
   '*Awkward silence*',
   'The Cloud',
-  "I'll give you all three minutes back",
+  "I'll give you all some time back.",
   'Can I share my screen?',
   'Scalable',
-  'I have to drop',
+  'I have to drop.',
   '"brb" in the chat',
-  "Let's set up a working session",
+  "Let's set up a working session.",
   'Was that your cat?',
-  'It looks like everyone is here',
+  'It looks like everyone is here.',
   'Are you in the office?',
-  'Let me share my screen',
+  'Let me share my screen.',
   'Happy Friday!',
   'Touch base',
-  'Coffee break',
+  '*Coffee break*',
+  'My audio cut out.',
+  '*Non-technical person deprecates themselves on their lack of technical knowledge*',
+  'I was on mute.',
+  'NoSQL',
+  'GraphQL',
 ];
 
 const BuzzwordBingo = styled.div`
@@ -44,7 +49,7 @@ const App = () => {
   return (
     <BuzzwordBingo>
       <h1>Buzzword Bingo</h1>
-      <Board buzzwords={sampleBuzzwords}></Board>
+      <Board buzzwords={buzzwords}></Board>
     </BuzzwordBingo>
   );
 };
