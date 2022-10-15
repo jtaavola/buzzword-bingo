@@ -90,7 +90,7 @@ const App = () => {
           />
         </RefreshButton>
       </Actions>
-      <Board refreshEvent={refreshEvent} buzzwords={buzzwords}></Board>
+      <Board key={refreshEvent} buzzwords={buzzwords}></Board>
     </BuzzwordBingo>
   );
 };
