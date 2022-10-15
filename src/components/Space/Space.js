@@ -45,7 +45,7 @@ export const Space = ({ id, onAction, children }) => {
 
 export const FreeSpace = () => {
   return (
-    <FreeSpaceContainer selected={true}>
+    <FreeSpaceContainer type="button" selected={true}>
       <FluidText>FREE</FluidText>
     </FreeSpaceContainer>
   );
