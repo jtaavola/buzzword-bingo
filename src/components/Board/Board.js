@@ -15,7 +15,9 @@ const BoardContainer = styled.div`
 `;
 
 export const Board = ({ buzzwords }) => {
-  const [bingoSpaces, setBingoSpaces] = useState([]);
+  const [bingoSpaces, setBingoSpaces] = useState(
+    Array.from(Array(5), () => new Array(5))
+  );
 
   useEffect(() => {
     const shuffledBuzzwords = buzzwords
@@ -24,20 +26,24 @@ export const Board = ({ buzzwords }) => {
       .map(({ val }) => val)
       .slice(0, 24);
 
-    let spaces = [];
+    let spaces = Array.from(Array(5), () => new Array(5));
     let freeSpacePushed = false;
+    let index = 0;
 
-    for (let i = 0; i < shuffledBuzzwords.length + 1; i++) {
-      // Free space
-      if (i === 12) {
-        spaces.push(<FreeSpace key={i} />);
-        freeSpacePushed = true;
-      } else {
-        spaces.push(
-          <Space key={i} id={i}>
-            {shuffledBuzzwords[freeSpacePushed ? i - 1 : i]}
-          </Space>
-        );
+    for (let i = 0; i < 5; i++) {
+      for (let j = 0; j < 5; j++) {
+        if (index === 12) {
+          spaces[i][j] = <FreeSpace key={index}></FreeSpace>;
+          freeSpacePushed = true;
+        } else {
+          spaces[i][j] = (
+            <Space key={index} id={index}>
+              {shuffledBuzzwords[freeSpacePushed ? index - 1 : index]}
+            </Space>
+          );
+        }
+
+        index++;
       }
     }
 
