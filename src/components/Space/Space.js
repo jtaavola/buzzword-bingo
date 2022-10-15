@@ -26,9 +26,11 @@ export const Space = ({ id, onAction, children }) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const toggleIsSelected = () => {
-    setIsSelected(!isSelected);
+    const s = !isSelected;
+    setIsSelected(s);
+
     if (onAction) {
-      onAction(id);
+      onAction(id, s);
     }
   };
 
