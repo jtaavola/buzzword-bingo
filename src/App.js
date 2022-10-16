@@ -75,8 +75,18 @@ const RefreshButton = styled(ActionButton)`
   background-color: lightblue;
 `;
 
+const shuffle = (words) => {
+  return words
+    .map((val) => ({ val, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ val }) => val)
+    .slice(0, 24);
+};
+
 const App = () => {
-  const [refreshEvent, setRefreshEvent] = useState();
+  const [shuffledBuzzwords, setShuffledBuzzwords] = useState(
+    shuffle(buzzwords)
+  );
 
   return (
     <BuzzwordBingo>
@@ -86,11 +96,11 @@ const App = () => {
           <BiRefresh
             size={'5em'}
             color="black"
-            onClick={(e) => setRefreshEvent(e.timeStamp)}
+            onClick={() => setShuffledBuzzwords(shuffle(buzzwords))}
           />
         </RefreshButton>
       </Actions>
-      <Board key={refreshEvent} buzzwords={buzzwords}></Board>
+      <Board buzzwords={shuffledBuzzwords}></Board>
     </BuzzwordBingo>
   );
 };

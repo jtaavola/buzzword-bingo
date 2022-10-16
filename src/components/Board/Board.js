@@ -23,8 +23,6 @@ export const Board = ({ buzzwords }) => {
     Array.from(Array(5), () => new Array(5))
   );
 
-  const [shuffledBuzzwords, setShuffledBuzzwords] = useState(buzzwords);
-
   const checkForWin = useCallback(() => {
     let hasWon = false;
 
@@ -100,14 +98,6 @@ export const Board = ({ buzzwords }) => {
   );
 
   useEffect(() => {
-    const shuffled = buzzwords
-      .map((val) => ({ val, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ val }) => val)
-      .slice(0, 24);
-
-    setShuffledBuzzwords(shuffled);
-
     let initSelectedSpaces = Array.from(Array(5), () => new Array(5));
 
     for (let i = 0; i < 5; i++) {
@@ -135,7 +125,7 @@ export const Board = ({ buzzwords }) => {
               selected={selectedSpaces[i][j]}
               onAction={() => updateSelectedState(i, j)}
             >
-              {shuffledBuzzwords[freeSpacePushed ? index - 1 : index]}
+              {buzzwords[freeSpacePushed ? index - 1 : index]}
             </Space>
           );
         }
@@ -145,7 +135,7 @@ export const Board = ({ buzzwords }) => {
     }
 
     setBingoSpaces(spaces);
-  }, [shuffledBuzzwords, selectedSpaces, updateSelectedState]);
+  }, [buzzwords, selectedSpaces, updateSelectedState]);
 
   return <BoardContainer>{bingoSpaces}</BoardContainer>;
 };
