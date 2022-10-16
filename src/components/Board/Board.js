@@ -23,6 +23,8 @@ export const Board = ({ buzzwords }) => {
     Array.from(Array(5), () => new Array(5))
   );
 
+  const [shuffledBuzzwords, setShuffledBuzzwords] = useState(buzzwords);
+
   const checkForWin = useCallback(() => {
     let hasWon = false;
 
