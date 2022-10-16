@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { FluidText } from '../FluidText';
 
@@ -22,24 +22,9 @@ const FreeSpaceContainer = styled(SpaceContainer)`
   cursor: auto;
 `;
 
-export const Space = ({ id, onAction, children }) => {
-  const [isSelected, setIsSelected] = useState(false);
-
-  const toggleIsSelected = () => {
-    const s = !isSelected;
-    setIsSelected(s);
-
-    if (onAction) {
-      onAction(id, s);
-    }
-  };
-
+export const Space = ({ selected, onAction, children }) => {
   return (
-    <SpaceContainer
-      type="button"
-      selected={isSelected}
-      onClick={toggleIsSelected}
-    >
+    <SpaceContainer type="button" selected={selected} onClick={onAction}>
       <FluidText>{children}</FluidText>
     </SpaceContainer>
   );
