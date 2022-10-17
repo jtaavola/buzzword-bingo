@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+import { BiRefresh } from 'react-icons/bi';
 import styled from 'styled-components';
 import { Board } from './components/Board';
 
@@ -45,11 +47,60 @@ const BuzzwordBingo = styled.div`
   background-color: #282c34;
 `;
 
+const Actions = styled.div`
+  display: flex;
+  justify-content: right;
+  width: 80vmin;
+  @media (max-width: 463px) {
+    width: 95vmin;
+  }
+`;
+
+const ActionButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4em;
+  width: 4em;
+  border: thin solid black;
+  margin: 0.5em;
+  border-radius: 5px;
+  &:hover {
+    scale: 1.05;
+  }
+  cursor: pointer;
+`;
+
+const RefreshButton = styled(ActionButton)`
+  background-color: lightblue;
+`;
+
+const shuffle = (words) => {
+  return words
+    .map((val) => ({ val, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ val }) => val)
+    .slice(0, 24);
+};
+
 const App = () => {
+  const [shuffledBuzzwords, setShuffledBuzzwords] = useState(
+    shuffle(buzzwords)
+  );
+
   return (
     <BuzzwordBingo>
       <h1>Buzzword Bingo</h1>
-      <Board buzzwords={buzzwords}></Board>
+      <Actions>
+        <RefreshButton type="button">
+          <BiRefresh
+            size={'5em'}
+            color="black"
+            onClick={() => setShuffledBuzzwords(shuffle(buzzwords))}
+          />
+        </RefreshButton>
+      </Actions>
+      <Board buzzwords={shuffledBuzzwords}></Board>
     </BuzzwordBingo>
   );
 };
