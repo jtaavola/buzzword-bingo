@@ -6,6 +6,7 @@ const Submit = styled.button`
   float: right;
   margin-top: 0.5em;
   background-color: lightgreen;
+  color: black;
   border: none;
   border-radius: 5px;
   height: 2.5em;
@@ -15,6 +16,7 @@ const Submit = styled.button`
   &:hover {
     scale: 1.05;
   }
+  cursor: pointer;
 `;
 
 export const EditBuzzwordsModal = ({
