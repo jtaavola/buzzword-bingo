@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { BiRefresh, BiPencil } from 'react-icons/bi';
+import { BiPencil, BiRefresh } from 'react-icons/bi';
 import styled from 'styled-components';
 import { Board } from './components/Board';
+import { EditBuzzwordsModal } from './components/EditBuzzwordsModal';
 
-const buzzwords = [
+const defaultBuzzwords = [
   'Can you see my screen?',
   "You're on mute.",
   "Let's take this offline.",
@@ -88,16 +89,38 @@ const shuffle = (words) => {
 };
 
 const App = () => {
+  const [buzzwords, setBuzzwords] = useState(defaultBuzzwords);
   const [shuffledBuzzwords, setShuffledBuzzwords] = useState(
-    shuffle(buzzwords)
+    shuffle(defaultBuzzwords)
   );
+  const [editModalOpened, setEditModalOpened] = useState(false);
+
+  const onEditClose = () => {
+    setEditModalOpened(false);
+  };
+
+  const onEditSubmit = (customizedBuzzwords) => {
+    setBuzzwords(customizedBuzzwords);
+    setShuffledBuzzwords(shuffle(customizedBuzzwords));
+    onEditClose();
+  };
 
   return (
     <BuzzwordBingo>
       <h1>Buzzword Bingo</h1>
+      <EditBuzzwordsModal
+        buzzwords={buzzwords}
+        opened={editModalOpened}
+        onClose={onEditClose}
+        onSubmit={onEditSubmit}
+      />
       <Actions>
         <EditButton type="button">
-          <BiPencil size={'5em'} color="black" />
+          <BiPencil
+            size={'5em'}
+            color="black"
+            onClick={() => setEditModalOpened(true)}
+          />
         </EditButton>
         <RefreshButton type="button">
           <BiRefresh
