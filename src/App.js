@@ -26,7 +26,7 @@ const defaultBuzzwords = [
   'It looks like everyone is here.',
   'Are you in the office?',
   'Let me share my screen.',
-  'Happy Friday!',
+  `Happy ${new Date().toLocaleDateString('en-US', { weekday: 'long' })}!`,
   'Touch base',
   '*Coffee break*',
   'My audio cut out.',
