@@ -1,6 +1,7 @@
 # Buzzword Bingo
 
 [![react](https://img.shields.io/badge/React-282c34?logo=react&style=for-the-badge)](https://reactjs.org)
+[![mantine](https://img.shields.io/badge/mantine-000000?logo=mantine&style=for-the-badge&color=blue)](https://mantine.dev)
 [![styled-components](https://img.shields.io/badge/styled%20components-000000?logo=styledcomponents&style=for-the-badge)](https://styled-components.com)
 
 A simple, fun Buzzword Bingo game built with React. [Check it out!](https://jtaavola.github.io/buzzword-bingo/)
